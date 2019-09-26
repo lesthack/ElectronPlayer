@@ -49,7 +49,7 @@ module.exports = (store, services, mainWindow, app) => {
         { label: 'Created By Oscar Beaumont', enabled: false },
         {
           label: 'Quit ElectronPlayer',
-          accelerator: 'Command+Q', // TODO: Non Mac Shortcut
+          accelerator: 'CmdOrCtrl+Q', // TODO: Non Mac Shortcut
           click() {
             app.quit();
           }
