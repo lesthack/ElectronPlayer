@@ -110,6 +110,12 @@ async function createWindow() {
     store.set('services', []);
     console.log('Initialised Config!');
   }
+  
+  // Hide MenuBar
+  let toggleMenuBar = store.get('options.toggleMenuBar');
+  if(toggleMenuBar){
+    mainWindow.setMenuBarVisibility(false);
+  }
 
   // Load the services and merge the users and default services
   let userServices = store.get('services') || [];

@@ -93,6 +93,23 @@ module.exports = (store, services, mainWindow, app) => {
       label: 'Settings',
       submenu: [
         {
+          label: 'Toggle Menu',
+          type: 'checkbox',
+          accelerator: 'Ctrl+M',
+          click(e) {            
+            if (store.get('options.toggleMenuBar')) {
+              mainWindow.setMenuBarVisibility(true);
+              store.delete('options.toggleMenuBar');
+            } else {
+              mainWindow.setMenuBarVisibility(false);
+              store.set('options.toggleMenuBar', e.checked);
+            }
+          },
+          checked: store.get('options.toggleMenuBar')
+            ? store.get('options.toggleMenuBar')
+            : false
+        },
+        {
           label: 'Always On Top',
           type: 'checkbox',
           click(e) {
